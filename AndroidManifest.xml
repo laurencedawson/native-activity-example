@@ -6,8 +6,10 @@
     <uses-sdk
         android:minSdkVersion="17"
         android:targetSdkVersion="17" />
-    
-    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
 
     <application
         android:allowBackup="false"
@@ -17,7 +19,6 @@
         <activity
             android:name="android.app.NativeActivity"
             android:configChanges="orientation|keyboardHidden" >
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="NativeExample" />
