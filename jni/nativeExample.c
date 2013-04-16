@@ -29,7 +29,7 @@ struct engine {
  * Initialize an EGL context for the current display.
  * TODO tidy this up, currently it's mostly Google example code
  */
-int engine_init_display(struct engine* engine) {
+int init_display(struct engine* engine) {
 
 	// Setup OpenGL ES 2
 	// http://stackoverflow.com/questions/11478957/how-do-i-create-an-opengl-es-2-context-in-a-native-activity
@@ -94,6 +94,7 @@ int engine_init_display(struct engine* engine) {
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_FASTEST);
 	glEnable(GL_CULL_FACE);
 	glDisable(GL_DEPTH_TEST);
+	glViewport(0, 0, w, h);
 
 	return 0;
 }
@@ -156,7 +157,7 @@ void handle_cmd(struct android_app* app, int32_t cmd) {
 	case APP_CMD_INIT_WINDOW:
 		// The window is being shown, get it ready.
 		if (engine->app->window != NULL) {
-			engine_init_display(engine);
+			init_display(engine);
 			draw_frame(engine);
 		}
 		break;
